@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>设置与历史 - 直播抽奖转盘</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app" style="max-width: 880px; margin: 0 auto;">
+      <h2 style="margin-bottom: 12px;">设置与历史</h2>
+
+      <div class="panel settings-panel">
+        <div class="settings-row">
+          <label for="roundsInput">基础圈数</label>
+          <input id="roundsInput" type="number" min="1" max="12" step="1" />
+        </div>
+        <div class="settings-row">
+          <label for="durationInput">时长 (毫秒)</label>
+          <input id="durationInput" type="number" min="1500" max="12000" step="100" />
+        </div>
+        <div class="settings-row">
+          <label for="modalInput">弹窗时长 (毫秒)</label>
+          <input id="modalInput" type="number" min="1000" max="10000" step="100" />
+        </div>
+        <div class="settings-actions">
+          <button id="saveSettingsBtn" class="btn">保存设置</button>
+          <button id="testSpinBtn" class="btn secondary" style="margin-left:8px;">测试抽奖</button>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top: 16px;">
+        <h3>礼物设置</h3>
+        <div id="prizeList" aria-label="礼物列表"></div>
+        <div class="panel-actions" style="margin-top:8px;">
+          <button id="addPrizeBtn" class="btn small secondary">添加礼物</button>
+          <button id="savePrizesBtn" class="btn small">保存礼物设置</button>
+        </div>
+        <p id="prizeHint" style="font-size: 13px; opacity: 0.85; margin-top:6px;">
+          提示：名称为扇区显示文字；权重为抽中概率（非百分比），至少需有一个权重大于 0。
+        </p>
+      </div>
+
+      <div class="panel" style="margin-top: 16px;">
+        <h3>历史记录</h3>
+        <div class="panel-actions" style="margin-bottom:8px;">
+          <button id="clearHistoryBtn" class="btn danger small">清空历史记录</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </div>
+
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn secondary" href="/" target="_self">返回主页面</a>
+      </div>
+    </div>
+
+    <!-- 二次确认弹窗（自定义，避免原生 confirm 在某些环境无效） -->
+    <div id="confirmModal" class="modal hidden">
+      <div class="modal-content">
+        <div id="confirmText">确认清空历史记录吗？此操作不可撤销。</div>
+        <div class="panel-actions" style="justify-content:center;margin-top:10px;">
+          <button id="confirmNoBtn" class="btn small secondary">取消</button>
+          <button id="confirmYesBtn" class="btn small danger" style="margin-left:8px;">确认</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/control.js"></script>
+  </body>
+  </html>

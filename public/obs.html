@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>OBS 直播转盘源</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      /* OBS 页面覆盖为白色主题 */
+      :root {
+        --bg: #ffffff;
+        --text: #000000;
+        --panel-bg: #ffffff;
+        --border: rgba(0,0,0,0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="wheel-container">
+        <canvas id="wheelCanvas" width="800" height="800"></canvas>
+        <div class="pointer"></div>
+      </div>
+      <div id="winnerModal" class="modal hidden">
+        <div class="modal-content">
+          <div id="winnerText" class="winner-text">中奖：X</div>
+        </div>
+      </div>
+    </div>
+    <script src="/obs.js"></script>
+  </body>
+  </html>
